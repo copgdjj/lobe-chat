@@ -51,7 +51,7 @@ const Content = memo<ContentProps>(({ loadingStage, setActiveStage }) => {
     <>
       {/* 在 head 中添加 Google Ads 脚本 */}
       <Head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2499446786219948" crossorigin="anonymous"></script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2499446786219948" crossOrigin="anonymous"></script>
       </Head>
 
       {isPgliteNotInited && <Init setActiveStage={setActiveStage} />}
