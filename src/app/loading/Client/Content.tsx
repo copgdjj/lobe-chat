@@ -40,10 +40,10 @@ const Content = memo<ContentProps>(({ loadingStage, setActiveStage }) => {
     script.async = true;
     script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2499446786219948";
     script.crossOrigin = "anonymous";
-    document.head.appendChild(script);
+    document.head.append(script); // 使用 append 代替 appendChild
 
     return () => {
-      document.head.removeChild(script);
+      script.remove(); // 使用 remove 代替 removeChild
     };
   }, []);
 
@@ -51,7 +51,11 @@ const Content = memo<ContentProps>(({ loadingStage, setActiveStage }) => {
     <>
       {/* 在 head 中添加 Google Ads 脚本 */}
       <Head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2499446786219948" crossOrigin="anonymous"></script>
+        <script
+          async
+          crossOrigin="anonymous" // 将属性按字母顺序排序
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2499446786219948"
+        ></script>
       </Head>
 
       {isPgliteNotInited && <Init setActiveStage={setActiveStage} />}
